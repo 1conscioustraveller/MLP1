@@ -19,15 +19,59 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      /* Prevent horizontal overflow */
+      overflow: hidden;
+    }
+    .logo {
+      /* Allow logo to shrink if needed */
+      flex-shrink: 0;
     }
     .logo svg {
       height: 48px;
+      /* Make the logo scale properly */
+      width: auto;
+      /* Ensure the entire logo is visible */
+      max-width: 100%;
+    }
+    nav {
+      /* Ensure nav doesn't push logo out */
+      flex-shrink: 0;
     }
     nav a {
       margin-left: 20px;
       color: white;
       text-decoration: none;
       font-weight: bold;
+    }
+    /* Add responsive behavior */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+      .logo svg {
+        height: 40px;
+      }
+      nav a {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        flex-wrap: wrap;
+      }
+      .logo {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      nav {
+        width: 100%;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 10px;
+      }
     }
     .hero {
       padding: 80px 40px;
@@ -75,9 +119,9 @@
 <body>
   <header>
     <div class="logo">
-      <!-- Mock SVG Logo -->
-      <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-        <rect x="0" y="0" width="200" height="60" fill="none" />
+      <!-- Updated SVG with better proportions -->
+      <svg viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="300" height="60" fill="none" />
         <circle cx="30" cy="30" r="22" fill="#ffffff" opacity="0.9" />
         <text x="65" y="38" font-size="28" fill="#ffffff" font-weight="bold">LinguaBridge</text>
       </svg>
